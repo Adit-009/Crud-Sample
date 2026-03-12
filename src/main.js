@@ -31,14 +31,14 @@ app.post("/submit", async (req, res) => {
 });
 
 app.get("/test", (req,res)=>{
-  res.send("Server OK");
+  res.render("view");
 });
 
 
-app.get("/view", async (req,res)=>{
-  const users = await Model.find().lean();
-res.render("view", {users})
-})
+// app.get("/view", async (req,res)=>{
+// const allUsers = await Model.find().lean();
+// res.render("view", { users: allUsers });
+// })
 
 // app.get('/view', async (req, res) => {
 
