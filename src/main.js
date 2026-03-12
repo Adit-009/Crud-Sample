@@ -3,6 +3,7 @@ const app = express();
 const Model = require("../Model/User");
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
