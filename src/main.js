@@ -33,7 +33,7 @@ app.post("/submit", async (req, res) => {
 });
 
 app.get("/view",(req,res)=>{
-  res.render("view");
+  res.send("view");
 });
 
 // app.get('/view', async (req, res) => {
