@@ -31,8 +31,7 @@ app.post("/submit", async (req, res) => {
 });
 
 app.get("/view", async (req,res)=>{
-  const users = await Model.find().lean();
-  res.json(users);
+  res.render("view");
 });
 
 // app.get('/view', async (req, res) => {
