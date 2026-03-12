@@ -1,5 +1,6 @@
 require("dotenv").config({ quiet: true });
 require('./config/db')
+require('./Model/User')
 const app = require('./src/main')
 const port = process.env.PORT || 3000;
 
