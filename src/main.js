@@ -37,7 +37,7 @@ app.get("/test", (req,res)=>{
 
 app.get("/view", async (req,res)=>{
   const users = await Model.find().lean();
-  res.send(users);
+res.render("view", {users})
 })
 
 // app.get('/view', async (req, res) => {
