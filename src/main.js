@@ -32,7 +32,7 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-app.get("/view", async (req,res)=>{
+app.get("/view",(req,res)=>{
   res.render("view");
 });
 
