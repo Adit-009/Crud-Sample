@@ -34,13 +34,17 @@ app.get("/test", (req,res)=>{
   res.send("Server OK");
 });
 
-app.get("/view", async (req, res) => {
+
+app.get('/view', async (req, res) => {
   try {
     const allUsers = await Model.find().lean();
-    res.render("view", { users: allUsers });
+
+    console.log("Users from DB:", allUsers); 
+
+    res.render("view", { users: allUsers || [] });
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Error loading users");
+    console.error("VIEW ROUTE ERROR:", err);
+    res.status(500).send("Database error");
   }
 });
 
