@@ -3,8 +3,8 @@ const app = express();
 const Model = require("../Model/User");
 const path = require("path");
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
@@ -35,18 +35,24 @@ app.get("/test", (req,res)=>{
 });
 
 
-app.get('/view', async (req, res) => {
-  try {
-    const allUsers = await Model.find().lean();
+app.get("/view", async (req,res)=>{
+  const users = await Model.find().lean();
+  res.send(users);
+})
 
-    console.log("Users from DB:", allUsers); 
+// app.get('/view', async (req, res) => {
 
-    res.render("view", { users: allUsers || [] });
-  } catch (err) {
-    console.error("VIEW ROUTE ERROR:", err);
-    res.status(500).send("Database error");
-  }
-});
+//   try {
+//     const allUsers = await Model.find().lean();
+
+//     console.log("Users from DB:", allUsers); 
+
+//     res.render("view", { users: allUsers || [] });
+//   } catch (err) {
+//     console.error("VIEW ROUTE ERROR:", err);
+//     res.status(500).send("Database error");
+//   }
+// });
 
 app.post("/delete/:id", async (req, res) => {
   try {
