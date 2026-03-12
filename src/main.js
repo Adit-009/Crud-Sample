@@ -7,7 +7,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "../views"));
+path.join(process.cwd(), "views")
+
+console.log("Views path:", path.join(process.cwd(), "views"));
 
 app.get("/", (req, res) => {
   res.render("index");
