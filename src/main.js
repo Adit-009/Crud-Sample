@@ -30,9 +30,13 @@ app.post("/submit", async (req, res) => {
   }
 });
 
+app.get("/test", (req,res)=>{
+  res.send("Server OK");
+});
+
 app.get("/view", async (req, res) => {
   try {
-    const allUsers = await Model.find();
+    const allUsers = await Model.find().lean();
     res.render("view", { users: allUsers });
   } catch (err) {
     console.error(err);
